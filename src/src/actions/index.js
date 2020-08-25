@@ -1,4 +1,4 @@
-import { axiosWithAuth } from '../api/authios';
+import  authios from '../api/authios';
 
 export const SET_USER = 'SET_USER';
 
