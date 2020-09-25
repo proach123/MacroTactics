@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.descCard{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  font-size: 3rem;
+  top: 55vh;
+  left: 30vw;
+}
+
+.player0Hand{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 75vh;
+}
+
+.player0Graveyard{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 75vh;
+  left:60vw;
+}
+
+.player1Hand{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 15vh;
+}
+
+.player1Graveyard{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 15vh;
+  left:60vw;
+}
+
+.player0LifeTotal{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 35vh;
+}
+.player1LifeTotal{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 35vh;
+}
+
+.player0Deck{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 75vh;
+  left:40vw;
+}
+
+.player0Relics{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 87vh;
+  left:25vw;
+}
+
+.player1Relics{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 3vh;
+  left:25vw;
+}
+
+h3{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:50vh;
+  left:50vw;
+}
+
+.market{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:40vh;
+  left:0vw;
+}
+
+.end-turn{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:40vh;
+  left:24vw;
+}
