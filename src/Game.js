@@ -664,7 +664,7 @@ function CheckRelics(G,ctx,card=undefined){
             }
         }
     }
-}
+} //test for git hub
 
 function EndTurn(G,ctx){
     // console.log(ctx.stage)
