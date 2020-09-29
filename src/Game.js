@@ -4,7 +4,7 @@ import { Stage } from 'boardgame.io/core';
 import { ActivePlayers } from 'boardgame.io/core';
 
 export const MacroTactics = {
-    
+
     setup: (ctx) => ({ 
         player0Deck: [{name: 'Slice', desc:`Deal 2 dmg`, func: dealDmg(ctx,2), key: 0,owner: '0',type: 'card', },
         {name: 'Heal' ,desc:'Heal 1 point of dmg',key: 1, owner: '0',type: 'card',}
@@ -27,7 +27,7 @@ export const MacroTactics = {
          ],
 
         marketDeck: [
-            {name:'discardTwo', desc:'Opponent discard two cards',key: 7, owner: '',type: 'card',},
+            {name:'discardTwo', desc:'Opponent discard two cards',key: 7, owner: '',type: 'card',cost:1},
             {name:'randomheal', desc:'heal between 1 and 6 health',key: 5, owner: '',type:'card',cost:1},
             {name:'Wish Hammer', desc:'deal random damage between 1 and 6', key: 4, owner: '',type:'card',cost:1},
             {name: 'Mend Wounds' ,desc:'your heals become 1 point stronger',key: 9, owner: '',type: 'card',cost: 1,},

@@ -10,6 +10,8 @@ import {MacroTactics} from './Game';
 import {MacroTacticsBoard} from './Board'
 import { render } from "react-dom";
 
+import { PlayerView } from 'boardgame.io/core';
+
 
 import './App.css';
 
@@ -17,6 +19,7 @@ const MacroClient = Client({
   game: MacroTactics,
   board: MacroTacticsBoard,
   multiplayer: SocketIO({ server: 'localhost:8000' }),
+  playerView: PlayerView.STRIP_SECRETS,
   
 })
 
