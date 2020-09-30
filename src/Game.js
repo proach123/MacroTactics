@@ -37,7 +37,7 @@ export const MacroTactics = {
             {name: 'Combat trick' ,desc:'deal 1 damage then draw a card',key: 10, owner: '',type: 'card',cost: 1,},
             {name: 'Combat trick' ,desc:'deal 1 damage then draw a card',key: 11, owner: '',type: 'card',cost: 1,},
             {name: 'Rage' ,desc:'Grant yourself Rage. Attacks do double damage',key: 12, owner: '',type: 'card',cost: 3,},
-            {name: 'Power Shift' ,desc:'deal damage to player equal to cards in hand. Both players discard thier hands',key: 13, owner: '',type: 'card',cost: 3,},
+            {name: 'Power Shift' ,desc:'deal damage to player equal to cards in hand. Both players discard thier hands',key: 13, owner: '',type: 'card',cost: 2,},
             {name: 'Power Gauntlet',desc:'attacks deal 1 extra dmg',key: 'relic-3',owner:'',type: 'relic',cost:1},
             {name: 'Power shield',desc:'Add one point of perm armor',key: 'relic-2',owner:'',type: 'relic',cost:1,},
             {name: 'Power Gauntlet',desc:'attacks deal 1 extra dmg',key: 'relic-1',owner:'0',type: 'relic',cost:1},
@@ -220,6 +220,7 @@ function Player0DrawCard(G, ctx, drawCount=1) {
     
 
         G.player0Armor = (G.permArmor0)
+
 
     ctx.events.setActivePlayers({ all: 'play' });
 }
