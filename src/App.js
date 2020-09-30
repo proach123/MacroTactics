@@ -34,5 +34,5 @@ function App() {
     </Router>
   );
 }
-
+//this app is now outdated see V2
 export default App;
