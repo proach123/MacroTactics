@@ -3,7 +3,10 @@ import decklist from './Decklist';
 import { Stage } from 'boardgame.io/core';
 import { ActivePlayers } from 'boardgame.io/core';
 
+
 export const MacroTactics = {
+
+
 
     setup: (ctx) => ({ 
         player0Deck: [{name: 'Slice', desc:`Deal 2 dmg`, func: dealDmg(ctx,2), key: 0,owner: '0',type: 'card', },
@@ -85,6 +88,7 @@ export const MacroTactics = {
 
         firstPlay:0,
     }),
+    
 
     phases: {
         start: {
@@ -413,7 +417,6 @@ function PlayCard(G, ctx, cardId){
 }
 
 
- 
 
 function ShuffleDecks(G, ctx,deck=2){
     //need to find a way to automatically do this.

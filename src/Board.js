@@ -10,9 +10,13 @@ export class MacroTacticsBoard extends React.Component {
   }
 
   buyCard(card) {
-    let owner = this.props.ctx.currentPlayer
-    card.owner = owner
-    this.props.moves.BuyCard(card)
+    if(this.props.playerID === this.props.ctx.currentPlayer){
+      let owner = this.props.ctx.currentPlayer
+      card.owner = owner
+      this.props.moves.BuyCard(card)
+    } else{
+      alert('not your turn')
+    }
   }
 
   checkCard(card){
@@ -21,45 +25,55 @@ export class MacroTacticsBoard extends React.Component {
   }
 
   whenClicked(id, owner) {
-    console.log(owner)
-    if (owner != this.props.ctx.currentPlayer) {
-      this.props.moves.InvalidMove()
-    } else
+    if(this.props.playerID === this.props.ctx.currentPlayer){
+
+      console.log(owner)
+      if (owner != this.props.ctx.currentPlayer) {
+        this.props.moves.InvalidMove()
+      } else
       this.props.moves.PlayCard(id);
+    }
   }
 
   endTurn(id){
-    this.props.moves.EndTurn()
+    if(this.props.playerID === this.props.ctx.currentPlayer){
+      this.props.moves.EndTurn()
+    }
   }
 
 
 
   handleDraw(player) {
-    console.log(player, 'this is the player trying to draw')
+    if(this.props.playerID === this.props.ctx.currentPlayer){
 
-    if (player != this.props.ctx.currentPlayer) {
-      console.log('error: wrong player drawstep')
-      this.props.moves.InvalidMove()
-      return
-    }
-    if (player === 0) {
-      this.props.moves.Player0DrawCard(1)
-    }
-    if (player === 1) {
-      this.props.moves.Player1DrawCard(1)
-    }
+    
+      console.log(player, 'this is the player trying to draw')
 
-    else {
-      console.log('error: general')
-      this.props.moves.InvalidMove()
-      return
-    }
+      if (player != this.props.ctx.currentPlayer) {
+        console.log('error: wrong player drawstep')
+        this.props.moves.InvalidMove()
+        return
+      }
+      if (player === 0) {
+        this.props.moves.Player0DrawCard(1)
+      }
+      if (player === 1) {
+        this.props.moves.Player1DrawCard(1)
+      }
 
+      else {
+        console.log('error: general')
+        this.props.moves.InvalidMove()
+        return
+      }
+    }
   }
 
   showPlayer0Deck() {
-    this.setState({ player0DeckToggled: !this.state.player0DeckToggled })
-    console.log(this.state.player0DeckToggled)
+    if(this.props.playerID === 0){
+      this.setState({ player0DeckToggled: !this.state.player0DeckToggled })
+      console.log(this.state.player0DeckToggled)
+    }
   }
 
 
@@ -130,6 +144,7 @@ export class MacroTacticsBoard extends React.Component {
     // }
 
     console.log(this.state.cardDescToggle)
+    console.log(this.props.playerID)
     return (
       <div>
         <table id="board">
