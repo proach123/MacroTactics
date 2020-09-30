@@ -685,3 +685,5 @@ function EndTurn(G,ctx){
     
 
 }
+
+//is github working?
