@@ -9,9 +9,9 @@ export const MacroTactics = {
 
 
     setup: (ctx) => ({ 
-        player0Deck: [{name: 'Slice', desc:`Deal 2 dmg`, func: dealDmg(ctx,2), key: 0,owner: '0',type: 'card', },
+        player0Deck: [{name: 'Slice', desc:`Deal 1 dmg`, func: dealDmg(ctx,2), key: 0,owner: '0',type: 'card', },
         {name: 'Heal' ,desc:'Heal 1 point of dmg',key: 1, owner: '0',type: 'card',}
-        ,{name:'Slice', desc:'Deal 2 points of dmg',key: 2, owner: '0',type: 'card',},
+        ,{name:'Slice', desc:'Deal 1 points of dmg',key: 2, owner: '0',type: 'card',},
         {name:'Raise Gauntlet', desc:'Add one point of armor until start of next turn',key: 3, owner: '0',type: 'card',},
 
          {name:'drawTwo', desc:'Draw two cards',key: 6, owner: '0',type: 'card',},
@@ -19,9 +19,9 @@ export const MacroTactics = {
          {name:'Raise Gauntlet', desc:'adds 1 armor until start of next turn',key: 14, owner: '0',type: 'card',},
         ],
 
-         player1Deck: [{name: 'Slice', desc:`Deal 2 dmg`, func: dealDmg(ctx,2), key: 0,owner: '1',type: 'card', },
+         player1Deck: [{name: 'Slice', desc:`Deal 1 dmg`, func: dealDmg(ctx,2), key: 0,owner: '1',type: 'card', },
          {name: 'Heal' ,desc:'Heal 1 point of dmg',key: 1, owner: '1',type: 'card',}
-         ,{name:'Slice', desc:'Deal 2 points of dmg',key: 2, owner: '1',type: 'card',},
+         ,{name:'Slice', desc:'Deal 1 points of dmg',key: 2, owner: '1',type: 'card',},
          {name:'Raise Gauntlet', desc:'Add one point of armor until start of next turn',key: 3, owner: '1',type: 'card',},
 
           {name:'drawTwo', desc:'Draw two cards',key: 6, owner: '1',type: 'card',},
@@ -310,7 +310,7 @@ function PlayCard(G, ctx, cardId){
     }
 
     if(cardId === 2){
-        dealDmg(G,player,2)
+        dealDmg(G,player,1)
     }
 
     if(cardId === 3){
