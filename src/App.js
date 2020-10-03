@@ -18,7 +18,7 @@ import './App.css';
 const MacroClient = Client({
   game: MacroTactics,
   board: MacroTacticsBoard,
-  multiplayer: SocketIO({ server: 'localhost:8000' }),
+  multiplayer: SocketIO({ server: 'localhost:8000' }), //this local host needs to change to the backend server that hasn't been built out yet. Might use the loby api but not sure yet need to research more on the docs.
   playerView: PlayerView.STRIP_SECRETS,
   
 })
