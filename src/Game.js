@@ -690,4 +690,4 @@ function EndTurn(G,ctx){
 
 }
 
-//is github working?
+//it is now
