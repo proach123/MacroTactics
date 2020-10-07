@@ -690,4 +690,3 @@ function EndTurn(G,ctx){
 
 }
 
-//it is now

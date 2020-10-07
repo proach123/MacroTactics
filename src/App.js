@@ -19,6 +19,9 @@ const MacroClient = Client({
   game: MacroTactics,
   board: MacroTacticsBoard,
   multiplayer: SocketIO({ server: 'localhost:8000' }), //this local host needs to change to the backend server that hasn't been built out yet. Might use the loby api but not sure yet need to research more on the docs.
+  //there are some issues with creating the server right now
+  //I'm not sure if i want to create it without the backend yet, and the front end deploy isn't working totally yet.
+  //I'm thinking the todo should be some of the visual css effects and then focus on the rest.
   playerView: PlayerView.STRIP_SECRETS,
   
 })
