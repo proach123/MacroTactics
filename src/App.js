@@ -22,6 +22,7 @@ const MacroClient = Client({
   //there are some issues with creating the server right now
   //I'm not sure if i want to create it without the backend yet, and the front end deploy isn't working totally yet.
   //I'm thinking the todo should be some of the visual css effects and then focus on the rest.
+  // Need to add more card abilities and strategies. Might balance tweek the relics where they have to be played before being active in the players' deck.
   playerView: PlayerView.STRIP_SECRETS,
   
 })
