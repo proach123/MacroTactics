@@ -87,6 +87,9 @@ export class MacroTacticsBoard extends React.Component {
       height: '150px',
       lineHeight: '50px',
       textAlign: 'center',
+      background: 'white',
+      margin: '1vw',
+      transition: 'all .15s ease-in-out',
     };
 
 
@@ -153,11 +156,11 @@ export class MacroTacticsBoard extends React.Component {
         {/* <div style={cellStyle}>{this.props.G.player0Deck[0].name}</div> */}
         <div className='player1Hand'>
           <div>player1 hand</div>
-          <button onClick={() => this.handleDraw(1)}>draw</button>
+          <div onClick={() => this.handleDraw(1)} className='draw-button'>draw</div>
           {
             this.props.G.player1Hand.map((elem) => {
               return (
-                <div key={elem.key} style={cellStyle} onClick={() => this.whenClicked(elem.key, elem.owner)}>
+                <div key={elem.key} style={cellStyle} onClick={() => this.whenClicked(elem.key, elem.owner)} className='hand-card-p1'>
                   <p>
                     {elem.name}
                     <br></br>
@@ -167,6 +170,17 @@ export class MacroTacticsBoard extends React.Component {
             })
           }
         </div>
+
+        <div className='player1Deck'>
+          <div>player1 deck</div>
+          <div style={cellStyle} onClick={() => { this.showPlayer1Deck(0) }}>
+            {
+              this.props.G.player1Deck[0].name
+            }
+          </div>
+
+        </div>
+
         <div className="player1Graveyard">
           <div>Player1 Graveyard</div>
           {this.props.G.player1Graveyard.map((elem) => {
@@ -187,53 +201,61 @@ export class MacroTacticsBoard extends React.Component {
         <div className='player1LifeTotal'>
           Player1 Gold Total:
       <br></br>
-          <h2>{this.props.G.player1Gold}</h2>
+          <h2 style={{color:'#ceba06'}}>{this.props.G.player1Gold}</h2>
         </div>
 
         <div className='player1LifeTotal'>
           Player1 Attack Multiplier:
       <br></br>
-          <h2>{this.props.G.player1AttackMultiplyer}</h2>
+          <h2 style={{color:'	#8A2BE2'}}>{this.props.G.player1AttackMultiplyer}</h2>
         </div>
 
         <div className='player1LifeTotal'>
           Player1 life/life total/armor:
       <br></br>
-          <h2>{this.props.G.player1LifeTotal}/{this.props.G.player1LifeMax}/{this.props.G.player1Armor}</h2>
+      <h2 style={{color:'red'}}>{this.props.G.player1LifeTotal}</h2>
+          /<h2 style={{color:'green'}}>{this.props.G.player1LifeMax}</h2>/
+          <h2 style={{color:'#C0C0C0'}}>{this.props.G.player1Armor}</h2>
         </div>
 
         <div className='player1LifeTotal'>
           Moves Left:
       <br></br>
           <h2>{this.props.ctx.numMoves}/3</h2>
+
+          <div className='end-turn-container' >
+            <div className='end-turn' onClick={() => { this.endTurn() }}>End Turn</div>
+          </div>
         </div>
 
         <div className='player0LifeTotal'>
           Player0 life/life total/armor:
       <br></br>
-          <h2>{this.props.G.player0LifeTotal}/{this.props.G.player0LifeMax}/{this.props.G.player0Armor}</h2>
+          <h2 style={{color:'red'}}>{this.props.G.player0LifeTotal}</h2>
+          /<h2 style={{color:'green'}}>{this.props.G.player0LifeMax}</h2>/
+          <h2 style={{color:'#C0C0C0'}}>{this.props.G.player0Armor}</h2>
         </div>
         <div className='player0LifeTotal'>
           Player0 Attack Multiplier:
       <br></br>
-          <h2>{this.props.G.player0AttackMultiplyer}</h2>
+          <h2 style={{color:'	#8A2BE2'}}>{this.props.G.player0AttackMultiplyer}</h2>
         </div>
         <div className='player0LifeTotal'>
           Player0 Gold Total:
       <br></br>
-          <h2>{this.props.G.player0Gold}</h2>
+          <h2 style={{color:'#ceba06'}}>{this.props.G.player0Gold}</h2>
         </div>
 
 
 
         <div className='player0Hand'>
           <div>player0 hand</div>
-          <button onClick={() => this.handleDraw(0)}>draw</button>
+          <div onClick={() => this.handleDraw(0)} className='draw-button'>draw</div>
           {
             this.props.G.player0Hand.map((elem) => {
 
               return (
-                <div key={elem.key} style={cellStyle} onClick={() => this.whenClicked(elem.key, elem.owner)}>
+                <div key={elem.key} style={cellStyle} onClick={() => this.whenClicked(elem.key, elem.owner)} className='hand-card-p0'>
                   <p>
                     {elem.name}
                     <br></br>
@@ -244,10 +266,7 @@ export class MacroTacticsBoard extends React.Component {
           }
         </div>
         
-        <div className='end-turn'>
-          <button onClick={() => { this.endTurn() }}>End Turn</button>
-
-        </div>
+        
         
 
         <div className='player0Deck'>
@@ -310,22 +329,8 @@ export class MacroTacticsBoard extends React.Component {
 
         <div className='market'>
           <div>Market</div>
-          {/* {this.props.G.marketDeck.map((elem)=> {
-          return(
-            <div key={elem.key} style={cellStyle} onClick={()=>{this.buyCard(elem)}}>
-              <p>
-                {elem.name}
-                <br></br>
-                {elem.desc}
-              </p>
-            </div>
-          )
-        })} */}
 
-
-
- {/* onClick={() => { this.buyCard(this.props.G.marketDeck[0]) }} */}
-          <div key={this.props.G.marketDeck[0].key} style={cellStyle}>
+          <div key={this.props.G.marketDeck[0].key} style={cellStyle} className='market-card'>
             <div onClick={() => { this.buyCard(this.props.G.marketDeck[0]) }}>
             <p>
               <div className='market-info'>Cost:{this.props.G.marketDeck[0].cost}</div>
@@ -336,7 +341,7 @@ export class MacroTacticsBoard extends React.Component {
             <div onClick={() =>{this.checkCard(this.props.G.marketDeck[0])}}>Info</div>
           </div>
 
-          <div key={this.props.G.marketDeck[1].key} style={cellStyle}>
+          <div key={this.props.G.marketDeck[1].key} style={cellStyle} className='market-card'>
           <div onClick={() => { this.buyCard(this.props.G.marketDeck[1]) }}>
             <p>
               <div className='market-info'>Cost:{this.props.G.marketDeck[1].cost}</div>
@@ -347,7 +352,7 @@ export class MacroTacticsBoard extends React.Component {
             <div onClick={() =>{this.checkCard(this.props.G.marketDeck[1])}}>Info</div>
           </div>
 
-          <div key={this.props.G.marketDeck[2].key} style={cellStyle}>
+          <div key={this.props.G.marketDeck[2].key} style={cellStyle} className='market-card'>
           <div onClick={() => { this.buyCard(this.props.G.marketDeck[2]) }}>
             <p>
               <div className='market-info'>Cost:{this.props.G.marketDeck[2].cost}</div>

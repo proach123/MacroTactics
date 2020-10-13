@@ -5,11 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #3f5e66;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+p{
+  color: black;
+  text-align:center;
+}
+
+
+div{
+  color: black;
+  text-shadow: 1px 1px 5px #000000;
 }
 
 .descCard{
@@ -29,6 +41,7 @@ code {
   align-items: center;
   top: 75vh;
   cursor: grab;
+  flex-direction: row;
 }
 
 .player0Graveyard{
@@ -47,6 +60,7 @@ code {
   align-items: center;
   top: 15vh;
   cursor: grab;
+  flex-direction: row;
 }
 
 .player1Graveyard{
@@ -63,14 +77,14 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 35vh;
+  top: 40vh;
 }
 .player1LifeTotal{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 35vh;
+  top: 40vh;
 }
 
 .player0Deck{
@@ -79,6 +93,15 @@ code {
   position: absolute;
   align-items: center;
   top: 75vh;
+  left:40vw;
+}
+
+.player1Deck{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 15vh;
   left:40vw;
 }
 
@@ -119,11 +142,85 @@ h3{
   cursor: grab;
 }
 
-.end-turn{
-  position: absolute;
+.end-turn-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  top:40vh;
-  left:24vw;
+  margin: auto 2%;
+
+  
+  color:black;
+  font-size:1rem;
+  font-family:Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.end-turn{
+  background: #F5F5DC;
+  width: 125px;
+  text-align: center;
+  padding:5px;
+  font-size:1.5rem;
+  border:2px solid aliceblue;
+  border-radius:100px;
+  transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.draw-button{
+  background: #F5F5DC;
+  width: 125px;
+  text-align: center;
+  padding:5px;
+  font-size:1.5rem;
+  border:2px solid aliceblue;
+  border-radius:100px;
+  transition: .3s;
+}
+
+/* hover effects */
+
+.end-turn:hover{
+  width:200px;
+  background-color: #F5F5DC;
+   box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  color: rgba(231, 49, 49, 0.794);
+  transition:.3s;
+}
+
+.end-turn:active{
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  transition: .05s
+}
+
+.hand-card-p1:hover{
+  box-shadow: 0 0 10px 0 #00bed7 inset, 0 0 20px 2px #00bed7;
+  border: 3px solid #00bed7;
+}
+
+.hand-card-p0:hover{
+  box-shadow: 0 0 10px 0 #00bed7 inset, 0 0 20px 2px #00bed7;
+  border: 3px solid #00bed7;
+}
+
+.market-card:hover{
+  box-shadow: 0 0 10px 0 #ceba06 inset, 0 0 20px 2px #ceba06;
+  border: 3px solid #ceba06;
+}
+
+
+.draw-button:hover {
+  animation: pulse 1s infinite;
+  transition: .3s;
+  box-shadow: 0 0 10px 0 #00bed7 inset, 0 0 20px 2px #00bed7;
+  border: 3px solid #00bed7;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(.9);
+  }
+    100% {
+    transform: scale(1);
+  }
 }
