@@ -176,7 +176,7 @@ h3{
   transition: .3s;
 }
 
-/* hover effects */
+/* hover effects need a slot for animations still */
 
 .end-turn:hover{
   width:200px;
