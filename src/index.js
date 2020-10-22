@@ -14,3 +14,6 @@ ReactDOM.render(
 
 serviceWorker.unregister();
 // needs to be reworked
+
+//index js will store the file structure for the landing page etc.
+
