@@ -26,7 +26,7 @@ const MacroClient = Client({
 
   //priority of tasks: 1. animation work up, 2. visual overhaul 3. server hosting and lobbying. 4. additional content.
   playerView: PlayerView.STRIP_SECRETS,
-  
+  //need to figure out how to strip the player view on p1 and keep the cards actionable
 })
 
 class App extends React.Component {
