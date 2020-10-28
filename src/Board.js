@@ -366,8 +366,9 @@ export class MacroTacticsBoard extends React.Component {
         </div>
         <div>{cardArray}</div>
         <h3>{deckList}</h3>
+        {/* winner needs its own animation and things */}
         <h3>
-          {winner}
+          {winner} 
         </h3>
       </div>
     );
