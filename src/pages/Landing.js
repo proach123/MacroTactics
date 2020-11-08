@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Row, Image, Jumbotron, Button} from 'react-bootstrap'
-import townpic from '../siteImages/Townhall.png'
 
 const Landing = () => {
 
@@ -13,7 +12,7 @@ const Landing = () => {
                 <h1>Welcome to MacroTactics</h1>
                 <p>The Groundbreaking New Competative Deckbuilder-Hybrid Card Game from Patrick Roach</p>
                 <p>
-                    {/* <Image src={townpic}></Image> */}
+                    
                 </p>
                 <p>
                     <Button href="/decks" variant='primary'>

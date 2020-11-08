@@ -1,10 +1,12 @@
 import React from 'react';
+import queryString from 'query-string';
 
 export class MacroTacticsBoard extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { player0DeckToggled: false, cardDescToggle: false, cardDesc: '' }
+    this.state = { player0DeckToggled: false, cardDescToggle: false, cardDesc: '',inviteLink: `localhost:3000/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first'),
+    inviteLinkShow: false, }
 
     this.showPlayer0Deck = this.showPlayer0Deck.bind(this)
   }
@@ -18,6 +20,16 @@ export class MacroTacticsBoard extends React.Component {
       alert('not your turn')
     }
   }
+
+  componentDidMount() {
+    const qs = queryString.parse(window.location.search);
+    if (qs.inviteLink === '1') {
+        this.setState({ inviteLinkShow: true, inviteLink: `localhost:3000/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first') })
+        let uri = window.location.toString();
+        let clean_uri = uri.substring(0, uri.indexOf("?"));
+        window.history.replaceState({}, document.title, clean_uri);
+    }
+}
 
   checkCard(card){
     console.log(card)
@@ -150,6 +162,15 @@ export class MacroTacticsBoard extends React.Component {
     console.log(this.props.playerID)
     return (
       <div>
+        {
+          this.state.inviteLinkShow ? (
+            <div className="inviteLinkDiv">
+              <span>Invite your friend (click to copy):</span>
+              <input type="text" onClick={this.copyLink} readOnly value={this.state.inviteLink} />
+              <button onClick={() => { this.setState({ inviteLinkShow: false }) }}>Dismiss</button>
+            </div>
+          ) : null
+        }
         <table id="board">
           {/* <tbody>{tbody}</tbody> */}
         </table>
