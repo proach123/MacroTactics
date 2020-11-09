@@ -5,10 +5,11 @@ export class MacroTacticsBoard extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { player0DeckToggled: false, cardDescToggle: false, cardDesc: '',inviteLink: `localhost:3000/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first'),
+    this.state = { player0DeckToggled: false,player1DeckToggled: false, cardDescToggle: false, cardDesc: '',inviteLink: `localhost:3000/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first'),
     inviteLinkShow: false, }
 
     this.showPlayer0Deck = this.showPlayer0Deck.bind(this)
+    this.showPlayer1Deck = this.showPlayer1Deck.bind(this)
   }
 
   buyCard(card) {
@@ -88,6 +89,13 @@ export class MacroTacticsBoard extends React.Component {
     }
   }
 
+  showPlayer1Deck() {
+    if(this.props.playerID === 1){
+      this.setState({ player1DeckToggled: !this.state.player1DeckToggled })
+      console.log(this.state.player1DeckToggled)
+    }
+  }
+
 
 
   render() {
@@ -117,6 +125,25 @@ export class MacroTacticsBoard extends React.Component {
 
 
     let deckList = [];
+
+    if (this.state.player1DeckToggled) {
+      deckList =
+        <div id='decklist'>{this.props.G.player1Deck.map((elm) => {
+
+          return (
+            <div key={elm.key} style={cellStyle} onClick={null}>
+              <p>
+                {elm.name}
+                <br></br>
+                {elm.desc}
+              </p>
+            </div>
+          )
+
+        })}</div>
+    }
+
+
     if (this.state.player0DeckToggled) {
       deckList =
         <div id='decklist'>{this.props.G.player0Deck.map((elm) => {
@@ -382,6 +409,28 @@ export class MacroTacticsBoard extends React.Component {
             </p>
             </div>
             <div onClick={() =>{this.checkCard(this.props.G.marketDeck[2])}}>Info</div>
+          </div>
+
+          <div key={this.props.G.marketDeck[3].key} style={cellStyle} className='market-card'>
+            <div onClick={() => { this.buyCard(this.props.G.marketDeck[3]) }}>
+            <p>
+              <div className='market-info'>Cost:{this.props.G.marketDeck[3].cost}</div>
+              <div className='market-info'>{this.props.G.marketDeck[3].name}</div>
+              <br></br>
+            </p>
+            </div>
+            <div onClick={() =>{this.checkCard(this.props.G.marketDeck[3])}}>Info</div>
+          </div>
+
+          <div key={this.props.G.marketDeck[4].key} style={cellStyle} className='market-card'>
+            <div onClick={() => { this.buyCard(this.props.G.marketDeck[4]) }}>
+            <p>
+              <div className='market-info'>Cost:{this.props.G.marketDeck[4].cost}</div>
+              <div className='market-info'>{this.props.G.marketDeck[4].name}</div>
+              <br></br>
+            </p>
+            </div>
+            <div onClick={() =>{this.checkCard(this.props.G.marketDeck[4])}}>Info</div>
           </div>
 
         </div>

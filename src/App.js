@@ -6,7 +6,6 @@ import { SocketIO } from 'boardgame.io/multiplayer'
 import {Client} from 'boardgame.io/react';
 import {MacroTactics} from './Game';
 import {MacroTacticsBoard} from './Board'
-import { render } from "react-dom";
 
 import HomePage from './Homepage'
 
@@ -20,7 +19,6 @@ import shortid from 'shortid';
 import ReactGA from 'react-ga';
 ReactGA.initialize('UA-84206931-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
-
 
 
 const MacroClient = Client({
