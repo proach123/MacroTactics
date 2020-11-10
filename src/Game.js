@@ -1,6 +1,28 @@
 import {INVALID_MOVE} from 'boardgame.io/core';
 
+//CURRENT KNOWN ISSUES AND TODO:
 
+// The first Slice of every game does 2 points of damage instead of 1
+// The armor gain from the dmg asssement might give players health if the armor is more than the damage.
+// UI scaling on smaller monitors is broken.
+// double equals instead of single equals on all of the ctx current player comparisons not known why it has to be this way.NOT A TODO
+// We need to show whos turn it is clearly.
+// When the deck loops too far the game breaks since the array is empty at that point.
+// the game is currently at a resourse loss, need to introduce more card draw and the like.
+// All the general styling needs to be fixed.
+// Needs animations and card art.
+// Homepage has instructions on how to play etc.
+// Session security and validation so that players can't loggin to each others sessions.
+//This will be the MVP
+
+
+//ADDITIONAL FEATURES
+
+// Players have a profile creation login and card selection before game start
+// Lobby matchmaking instead of client to client invitations
+// Player databases
+// ReactNative implimentation for mobile app
+// Donation button and user feedback
 
 export const MacroTactics = {
 
