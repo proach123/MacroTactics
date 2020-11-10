@@ -20,11 +20,16 @@ import ReactGA from 'react-ga';
 ReactGA.initialize('UA-84206931-2');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
+const { hostname, port } = window.location;
 
+console.log( window.location)
+
+const serverSocket = `${hostname}:${8000}`
+console.log(serverSocket)
 const MacroClient = Client({
   game: MacroTactics,
   board: MacroTacticsBoard,
-  multiplayer: SocketIO({ server: 'localhost:8000' }), 
+  multiplayer: SocketIO({ server: serverSocket }), 
 
   playerView: PlayerView.STRIP_SECRETS,
   //need to figure out how to strip the player view on p1 and keep the cards actionable

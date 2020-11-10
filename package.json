@@ -9,8 +9,10 @@
     "axios": "^0.20.0",
     "boardgame.io": "^0.40.0",
     "bootstrap": "^4.5.2",
+    "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "history": "^5.0.0",
+    "koa-static": "^5.0.0",
     "nanoid": "^2.1.11",
     "query-string": "^6.13.7",
     "react": "^16.13.1",
@@ -22,7 +24,8 @@
     "shortid": "^2.2.16"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "launch": "react-scripts start",
+    "start": "node -r esm src/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
