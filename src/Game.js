@@ -1,12 +1,8 @@
 import {INVALID_MOVE} from 'boardgame.io/core';
-import decklist from './Decklist';
-import { Stage } from 'boardgame.io/core';
-import { ActivePlayers } from 'boardgame.io/core';
+
 
 
 export const MacroTactics = {
-
-
 
     setup: (ctx) => ({ 
         player0Deck: [{name: 'Slice', desc:`Deal 1 dmg`, func: dealDmg(ctx,2), key: 0,owner: '0',type: 'card', },

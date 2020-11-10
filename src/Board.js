@@ -381,8 +381,8 @@ export class MacroTacticsBoard extends React.Component {
           <div key={this.props.G.marketDeck[0].key} style={cellStyle} className='market-card'>
             <div onClick={() => { this.buyCard(this.props.G.marketDeck[0]) }}>
             <p>
-              <div className='market-info'>Cost:{this.props.G.marketDeck[0].cost}</div>
-              <div className='market-info'>{this.props.G.marketDeck[0].name}</div>
+              <span className='market-info'>Cost:{this.props.G.marketDeck[0].cost}</span>
+              <span className='market-info'>{this.props.G.marketDeck[0].name}</span>
               <br></br>
             </p>
             </div>
@@ -392,8 +392,8 @@ export class MacroTacticsBoard extends React.Component {
           <div key={this.props.G.marketDeck[1].key} style={cellStyle} className='market-card'>
           <div onClick={() => { this.buyCard(this.props.G.marketDeck[1]) }}>
             <p>
-              <div className='market-info'>Cost:{this.props.G.marketDeck[1].cost}</div>
-              <div className='market-info'>{this.props.G.marketDeck[1].name}</div>
+              <span className='market-info'>Cost:{this.props.G.marketDeck[1].cost}</span>
+              <span className='market-info'>{this.props.G.marketDeck[1].name}</span>
               <br></br>
             </p>
             </div>
@@ -403,8 +403,8 @@ export class MacroTacticsBoard extends React.Component {
           <div key={this.props.G.marketDeck[2].key} style={cellStyle} className='market-card'>
           <div onClick={() => { this.buyCard(this.props.G.marketDeck[2]) }}>
             <p>
-              <div className='market-info'>Cost:{this.props.G.marketDeck[2].cost}</div>
-              <div className='market-info'>{this.props.G.marketDeck[2].name}</div>
+              <span className='market-info'>Cost:{this.props.G.marketDeck[2].cost}</span>
+              <span className='market-info'>{this.props.G.marketDeck[2].name}</span>
               <br></br>
             </p>
             </div>
@@ -414,8 +414,8 @@ export class MacroTacticsBoard extends React.Component {
           <div key={this.props.G.marketDeck[3].key} style={cellStyle} className='market-card'>
             <div onClick={() => { this.buyCard(this.props.G.marketDeck[3]) }}>
             <p>
-              <div className='market-info'>Cost:{this.props.G.marketDeck[3].cost}</div>
-              <div className='market-info'>{this.props.G.marketDeck[3].name}</div>
+              <span className='market-info'>Cost:{this.props.G.marketDeck[3].cost}</span>
+              <span className='market-info'>{this.props.G.marketDeck[3].name}</span>
               <br></br>
             </p>
             </div>
@@ -425,8 +425,8 @@ export class MacroTacticsBoard extends React.Component {
           <div key={this.props.G.marketDeck[4].key} style={cellStyle} className='market-card'>
             <div onClick={() => { this.buyCard(this.props.G.marketDeck[4]) }}>
             <p>
-              <div className='market-info'>Cost:{this.props.G.marketDeck[4].cost}</div>
-              <div className='market-info'>{this.props.G.marketDeck[4].name}</div>
+              <span className='market-info'>Cost:{this.props.G.marketDeck[4].cost}</span>
+              <span className='market-info'>{this.props.G.marketDeck[4].name}</span>
               <br></br>
             </p>
             </div>
