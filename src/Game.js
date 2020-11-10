@@ -298,7 +298,7 @@ function PlayCard(G, ctx, cardId){
     const player = ctx.currentPlayer
     console.log(cardId)
     if(cardId === 0){
-        dealDmg(G,player,2)
+        dealDmg(G,player,1)
     }
 
     if(cardId === 1){
