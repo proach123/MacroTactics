@@ -5,7 +5,7 @@ export class MacroTacticsBoard extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { player0DeckToggled: false,player1DeckToggled: false, cardDescToggle: false, cardDesc: '',inviteLink: `localhost:3000/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first'),
+    this.state = { player0DeckToggled: false,player1DeckToggled: false, cardDescToggle: false, cardDesc: '',inviteLink: `https://vigilant-mccarthy-53bcb3.netlify.app/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first'),
     inviteLinkShow: false, }
 
     this.showPlayer0Deck = this.showPlayer0Deck.bind(this)
@@ -25,7 +25,7 @@ export class MacroTacticsBoard extends React.Component {
   componentDidMount() {
     const qs = queryString.parse(window.location.search);
     if (qs.inviteLink === '1') {
-        this.setState({ inviteLinkShow: true, inviteLink: `localhost:3000/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first') })
+        this.setState({ inviteLinkShow: true, inviteLink: `https://vigilant-mccarthy-53bcb3.netlify.app/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first') })
         let uri = window.location.toString();
         let clean_uri = uri.substring(0, uri.indexOf("?"));
         window.history.replaceState({}, document.title, clean_uri);
