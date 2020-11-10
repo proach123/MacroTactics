@@ -10,7 +10,7 @@ import {MacroTacticsBoard} from './Board'
 import HomePage from './Homepage'
 
 import { PlayerView } from 'boardgame.io/core';
-
+//netlify ci set to true now
 
 import './App.css';
 
