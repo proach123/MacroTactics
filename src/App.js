@@ -29,7 +29,7 @@ console.log(serverSocket)
 const MacroClient = Client({
   game: MacroTactics,
   board: MacroTacticsBoard,
-  multiplayer: SocketIO({ server: serverSocket }), 
+  multiplayer: SocketIO({ server: 'https://macrotactics.herokuapp.com/' }), 
 
   playerView: PlayerView.STRIP_SECRETS,
   //need to figure out how to strip the player view on p1 and keep the cards actionable
