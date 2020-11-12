@@ -2,7 +2,7 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 
 //CURRENT KNOWN ISSUES AND TODO:
 
-// The first Slice of every game does 2 points of damage instead of 1
+// The first Slice of every game does 2 points of damage instead of 1 *fixed server updated
 // The armor gain from the dmg asssement might give players health if the armor is more than the damage.
 // UI scaling on smaller monitors is broken.
 // double equals instead of single equals on all of the ctx current player comparisons not known why it has to be this way.NOT A TODO
@@ -13,6 +13,7 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 // Needs animations and card art.
 // Homepage has instructions on how to play etc.
 // Session security and validation so that players can't loggin to each others sessions.
+
 //This will be the MVP
 
 
