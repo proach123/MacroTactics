@@ -225,7 +225,7 @@ function Player0DrawCard(G, ctx, drawCount=1) {
         G.player0Graveyard = []
         G.player0Deck = [...ctx.random.Shuffle(G.player0Deck)]
         //deck gets replaced by graveyard then graveyard returns to an arra then deck shuffles, then normal draw happens.
-        //this works because boardgame.io handles the immutiblity behind the scenes and lets us do things like this to the G obj.
+        
     } 
 
         if(G.player0Deck[drawIndex]){
@@ -461,12 +461,12 @@ function dealDmg(G, player, num){
     if(player == 0){
         if(G.player1Armor < ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)){
             G.player1LifeTotal = (G.player1LifeTotal + G.player1Armor) - ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)
-        }
+        } else return
     }
     if (player == 1){
         if(G.player0Armor < ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)){
             G.player0LifeTotal = (G.player0LifeTotal + G.player0Armor) - ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)
-        }
+        } else return
     }
 }
 
