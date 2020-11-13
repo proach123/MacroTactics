@@ -24,6 +24,11 @@ div{
   text-shadow: 1px 1px 5px #000000;
 }
 
+
+
+
+
+
 .descCard{
   display: flex;
   justify-content: center;
@@ -39,7 +44,7 @@ div{
   justify-content: center;
   position: absolute;
   align-items: center;
-  top: 75vh;
+  top: 70vh;
   cursor: grab;
   flex-direction: row;
 }
@@ -174,6 +179,45 @@ h3{
   border:2px solid aliceblue;
   border-radius:100px;
   transition: .3s;
+}
+
+.turn{
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  position: absolute;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+  right: 20vw;
+}
+.red-circle{
+  height: 100px;
+  width: 93px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px 0 red inset, 0 0 20px 2px red;
+  border: 3px solid red;
+}
+
+.green-circle{
+  height: 100px;
+  width: 93px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px 0 green inset, 0 0 20px 2px green;
+  border: 3px solid green;
+}
+
+.invisible-circle{
+  height: 100px;
+  width: 100px;
+  background-color: #3f5e66;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 14px;
 }
 
 /* hover effects need a slot for animations still */

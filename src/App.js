@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import {Router, Route } from "react-router-dom"
+import history from './history'
 
 import { SocketIO } from 'boardgame.io/multiplayer'
 
@@ -30,9 +31,9 @@ const MacroClient = Client({
   //need to figure out how to strip the player view on p1 and keep the cards actionable
 })
 
+
 const App = ()=>(
-  <Router>
-        <div>
+  <Router history={history}>
             <Route path="/" exact component={HomePage} />
             <Route path="/play/:id?/:player?" render={ ({match}) => {
                 if (typeof match.params.id === 'undefined' || !shortid.isValid(match.params.id)) {
@@ -48,7 +49,6 @@ const App = ()=>(
                 }
                 return <MacroClient matchID={match.params.id} playerID={playerID} debug={false} />
             }} />
-        </div>
     </Router>
 )
 
