@@ -25,6 +25,12 @@ class HomePage extends React.Component {
         return (
             <div>
 
+                <div>How to play:
+                    <div>
+                        MacroTactics is a new prototype game of immense possibilities. The core gameplay could be called a PvP deckbuilder strategy game.
+                    </div>
+                </div>
+
                 <button onClick={ () => this.startGame() } className="btn btn-info btn-lg btn-block mt-3">New Game</button>
 
             </div>
