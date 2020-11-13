@@ -1,5 +1,6 @@
 import React from 'react';
 import queryString from 'query-string';
+import history from './history';
 
 export class MacroTacticsBoard extends React.Component {
 
@@ -11,7 +12,7 @@ export class MacroTacticsBoard extends React.Component {
     this.showPlayer0Deck = this.showPlayer0Deck.bind(this)
     this.showPlayer1Deck = this.showPlayer1Deck.bind(this)
   }
-
+  
   buyCard(card) {
     if(this.props.playerID === this.props.ctx.currentPlayer){
       let owner = this.props.ctx.currentPlayer
@@ -25,7 +26,7 @@ export class MacroTacticsBoard extends React.Component {
   componentDidMount() {
     const qs = queryString.parse(window.location.search);
     if (qs.inviteLink === '1') {
-        this.setState({ inviteLinkShow: true, inviteLink: `https://vigilant-mccarthy-53bcb3.netlify.app/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first') })
+        this.setState({ inviteLinkShow: true })
         let uri = window.location.toString();
         let clean_uri = uri.substring(0, uri.indexOf("?"));
         window.history.replaceState({}, document.title, clean_uri);
@@ -96,9 +97,9 @@ export class MacroTacticsBoard extends React.Component {
     }
   }
 
-
   render() {
 
+    
 
     const cellStyle = {
       border: '1px solid #555',
@@ -120,7 +121,8 @@ export class MacroTacticsBoard extends React.Component {
         ) : (
             <div id="winner">Draw!</div>
           );
-
+        
+          setTimeout(() => history.push('/'), 3000);
       
     }
 
@@ -170,10 +172,15 @@ export class MacroTacticsBoard extends React.Component {
       </div>
     }
 
+    
+
 
     console.log(this.state.cardDescToggle)
     console.log(this.props.playerID)
+
+
     return (
+
       <div>
         {
           this.state.inviteLinkShow ? (
@@ -184,9 +191,11 @@ export class MacroTacticsBoard extends React.Component {
             </div>
           ) : null
         }
-        <table id="board">
 
-        </table>
+        
+      
+     
+
 
         <div className='player1Hand'>
           <div>player1 hand</div>
@@ -260,6 +269,20 @@ export class MacroTacticsBoard extends React.Component {
           <div className='end-turn-container' >
             <div className='end-turn' onClick={() => { this.endTurn() }}>End Turn</div>
           </div>
+          {this.props.ctx.currentPlayer == 1 ? (
+            <div className="turn">
+              <div className='green-circle'></div>
+              <div className='invisible-circle'></div>
+              <div className='red-circle'></div>
+              
+            </div>
+          ) : <div className="turn">
+            <div className='red-circle'></div>
+            <div className='invisible-circle'></div>
+            <div className='green-circle'></div>
+              
+        </div>}
+
         </div>
 
         <div className='player0LifeTotal'>
