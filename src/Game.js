@@ -459,12 +459,12 @@ function dealDmg(G, player, num){
 
     console.log(`the player who damaged ${player}`)
     if(player == 0){
-        if(G.player1Armor > ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)){
+        if(G.player1Armor < ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)){
             G.player1LifeTotal = (G.player1LifeTotal + G.player1Armor) - ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)
         }
     }
     if (player == 1){
-        if(G.player0Armor > ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)){
+        if(G.player0Armor < ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)){
             G.player0LifeTotal = (G.player0LifeTotal + G.player0Armor) - ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)
         }
     }
