@@ -2,17 +2,17 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 
 //CURRENT KNOWN ISSUES AND TODO:
 
-// The first Slice of every game does 2 points of damage instead of 1 *fixed server updated
-// The armor gain from the dmg asssement might give players health if the armor is more than the damage.
-// UI scaling on smaller monitors is broken.
-// double equals instead of single equals on all of the ctx current player comparisons not known why it has to be this way.NOT A TODO
-// We need to show whos turn it is clearly.
-// When the deck loops too far the game breaks since the array is empty at that point.
-// the game is currently at a resourse loss, need to introduce more card draw and the like.
-// All the general styling needs to be fixed.
-// Needs animations and card art.
-// Homepage has instructions on how to play etc.
-// Session security and validation so that players can't loggin to each others sessions.
+// The first Slice of every game does 2 points of damage instead of 1                                                                       // *fixed server updated
+// The armor gain from the dmg asssement might give players health if the armor is more than the damage.                                    //
+// UI scaling on smaller monitors is broken.                                                                                                //
+// double equals instead of single equals on all of the ctx current player comparisons not known why it has to be this way.NOT A TODO       //
+// We need to show whos turn it is clearly.                                                                                                 //
+// When the deck loops too far the game breaks since the array is empty at that point.                                                      //
+// the game is currently at a resourse loss, need to introduce more card draw and the like.                                                 //
+// All the general styling needs to be fixed.                                                                                               //
+// Needs animations and card art.                                                                                                           //
+// Homepage has instructions on how to play etc.                                                                                            //
+// Session security and validation so that players can't loggin to each others sessions.                                                    //
 
 //This will be the MVP
 
@@ -459,10 +459,14 @@ function dealDmg(G, player, num){
 
     console.log(`the player who damaged ${player}`)
     if(player == 0){
-        G.player1LifeTotal = (G.player1LifeTotal + G.player1Armor) - ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)
+        if(G.player1Armor > ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)){
+            G.player1LifeTotal = (G.player1LifeTotal + G.player1Armor) - ((num * G.player0AttackMultiplyer) + G.player0AttackAdd)
+        }
     }
     if (player == 1){
-        G.player0LifeTotal = (G.player0LifeTotal + G.player0Armor) - ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)
+        if(G.player0Armor > ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)){
+            G.player0LifeTotal = (G.player0LifeTotal + G.player0Armor) - ((num * G.player1AttackMultiplyer) + G.player1AttackAdd)
+        }
     }
 }
 
