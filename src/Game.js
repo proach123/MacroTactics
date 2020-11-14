@@ -6,7 +6,7 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 // The armor gain from the dmg asssement might give players health if the armor is more than the damage.                                    // *fixed Nov/12
 // UI scaling on smaller monitors is broken.                                                                                                //
 // double equals instead of single equals on all of the ctx current player comparisons not known why it has to be this way.NOT A TODO       // *not fixable
-// We need to show whos turn it is clearly.                                                                                                 //
+// We need to show whos turn it is clearly.                                                                                                 // *added light toggle on whos turn it is
 // When the deck loops too far the game breaks since the array is empty at that point.                                                      //
 // the game is currently at a resourse loss, need to introduce more card draw and the like.                                                 //
 // All the general styling needs to be fixed.                                                                                               //
