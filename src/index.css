@@ -220,6 +220,38 @@ h3{
   margin: 14px;
 }
 
+.inviteLinkDiv{
+  z-index: 1000;
+    position: absolute;
+    width: 280px;
+    padding: 10px;
+    top: calc(50% - 50px);
+    left: calc((100% - 300px) / 2 - 140px);
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.inviteLinkSpan{
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.inviteLinkInput{
+  display: block;
+  width: 100%;
+  margin: 10px 0px 0px;
+}
+
+.inviteLinkButton{
+  display: block;
+  width: 100%;
+  margin: 10px 0px 0px;
+  background-color: #F5F5DC;
+  border: 1px solid black;
+}
+
 /* hover effects need a slot for animations still */
 
 .end-turn:hover{
@@ -228,6 +260,11 @@ h3{
    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
   color: rgba(231, 49, 49, 0.794);
   transition:.3s;
+}
+
+.inviteLinkButton:hover{
+  border: 2px solid black;
+  color: rgba(231, 49, 49, 0.794);
 }
 
 .end-turn:active{

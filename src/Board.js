@@ -185,16 +185,13 @@ export class MacroTacticsBoard extends React.Component {
         {
           this.state.inviteLinkShow ? (
             <div className="inviteLinkDiv">
-              <span>Invite your friend (click to copy):</span>
-              <input type="text" onClick={this.copyLink} readOnly value={this.state.inviteLink} />
-              <button onClick={() => { this.setState({ inviteLinkShow: false }) }}>Dismiss</button>
+              <span className='inviteLinkSpan'>Invite your friend (triple-click to copy):</span>
+              <input className='inviteLinkInput' type="text" onClick={this.copyLink} readOnly value={this.state.inviteLink} />
+              <button className='inviteLinkButton' onClick={() => { this.setState({ inviteLinkShow: false }) }}>Dismiss</button>
             </div>
           ) : null
         }
 
-        
-      
-     
 
 
         <div className='player1Hand'>

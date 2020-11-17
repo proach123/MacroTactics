@@ -7,6 +7,7 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 // UI scaling on smaller monitors is broken.                                                                                                //
 // double equals instead of single equals on all of the ctx current player comparisons not known why it has to be this way.NOT A TODO       // *not fixable
 // We need to show whos turn it is clearly.                                                                                                 // *added light toggle on whos turn it is
+// invite link is styled                                                                                                                    // *fixed
 // When the deck loops too far the game breaks since the array is empty at that point.                                                      //
 // the game is currently at a resourse loss, need to introduce more card draw and the like.                                                 //
 // All the general styling needs to be fixed.                                                                                               //
