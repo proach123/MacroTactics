@@ -8,7 +8,7 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 // double equals instead of single equals on all of the ctx current player comparisons not known why it has to be this way.NOT A TODO       // *not fixable
 // We need to show whos turn it is clearly.                                                                                                 // *added light toggle on whos turn it is
 // invite link is styled                                                                                                                    // *fixed
-// When the deck loops too far the game breaks since the array is empty at that point.                                                      //
+// When the deck loops too far the game breaks since the array is empty at that point.                                                      // *fixed the board now conditionally renders the things that are needed
 // the game is currently at a resourse loss, need to introduce more card draw and the like.                                                 //
 // All the general styling needs to be fixed.                                                                                               //
 // Needs animations and card art.                                                                                                           //
@@ -59,8 +59,8 @@ export const MacroTactics = {
             {name: 'Rage' ,desc:'Grant yourself Rage. Attacks do double damage',key: 12, owner: '',type: 'card',cost: 3,},
             {name: 'Power Shift' ,desc:'deal damage to player equal to cards in hand. Both players discard thier hands',key: 13, owner: '',type: 'card',cost: 2,},
             {name: 'Power Gauntlet',desc:'attacks deal 1 extra dmg',key: 'relic-3',owner:'',type: 'relic',cost:1},
-            {name: 'Power shield',desc:'Add one point of perm armor',key: 'relic-2',owner:'',type: 'relic',cost:1,},
-            {name: 'Power Gauntlet',desc:'attacks deal 1 extra dmg',key: 'relic-1',owner:'0',type: 'relic',cost:1},
+            {name: 'Power Shield',desc:'Add one point of perm armor',key: 'relic-2',owner:'',type: 'relic',cost:1,},
+            {name: 'Power Gauntlet',desc:'attacks deal 1 extra dmg',key: 'relic-1',owner:'',type: 'relic',cost:1},
         ],
    
 //lastest card key#: 14
