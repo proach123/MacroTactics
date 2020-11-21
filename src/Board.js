@@ -8,7 +8,7 @@ export class MacroTacticsBoard extends React.Component {
     super(props)
     this.state = {
       player0DeckToggled: false, player1DeckToggled: false, cardDescToggle: false, cardDesc: '', inviteLink: `https://vigilant-mccarthy-53bcb3.netlify.app/play/${this.props.matchID}/` + (this.props.playerID === "0" ? 'second' : 'first'),
-      inviteLinkShow: false,
+      inviteLinkShow: false, strategizePlayer1: false, strategizePlayer0: false,
     }
 
     this.showPlayer0Deck = this.showPlayer0Deck.bind(this)
@@ -71,10 +71,10 @@ export class MacroTacticsBoard extends React.Component {
         return
       }
       if (player === 0) {
-        this.props.moves.Player0DrawCard(1)
+        this.props.moves.Player0DrawCard(this.props.G.player0DrawstepAmount)
       }
       if (player === 1) {
-        this.props.moves.Player1DrawCard(1)
+        this.props.moves.Player1DrawCard(this.props.G.player1DrawstepAmount)
       }
 
       else {
@@ -102,7 +102,6 @@ export class MacroTacticsBoard extends React.Component {
   render() {
 
 
-
     const cellStyle = {
       border: '1px solid #555',
       width: '110px',
@@ -125,6 +124,8 @@ export class MacroTacticsBoard extends React.Component {
           );
 
       setTimeout(() => history.push('/'), 3000);
+      setTimeout(()=> window.location.reload(), 3500)
+      
 
     }
 

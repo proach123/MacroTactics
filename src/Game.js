@@ -9,11 +9,13 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 // We need to show whos turn it is clearly.                                                                                                 // *added light toggle on whos turn it is
 // invite link is styled                                                                                                                    // *fixed
 // When the deck loops too far the game breaks since the array is empty at that point.                                                      // *fixed the board now conditionally renders the things that are needed
-// the game is currently at a resourse loss, need to introduce more card draw and the like.                                                 //
+// the game is currently at a resourse loss, need to introduce more card draw and the like.                                                 // added more card draw effects
 // All the general styling needs to be fixed.                                                                                               //
 // Needs animations and card art.                                                                                                           //
-// Homepage has instructions on how to play etc.                                                                                            //
+// Homepage has instructions on how to play etc.                                                                                            // *kinda fixed needs to be updated on the style changes
 // Session security and validation so that players can't loggin to each others sessions.                                                    //
+// When the hand is too full the cards start to become unclickable. Might use a ui change, Might put a rule on hand limit.
+
 
 //This will be the MVP
 
@@ -58,13 +60,23 @@ export const MacroTactics = {
             {name: 'Combat trick' ,desc:'deal 1 damage then draw a card',key: 11, owner: '',type: 'card',cost: 1,},
             {name: 'Rage' ,desc:'Grant yourself Rage. Attacks do double damage',key: 12, owner: '',type: 'card',cost: 3,},
             {name: 'Power Shift' ,desc:'deal damage to player equal to cards in hand. Both players discard thier hands',key: 13, owner: '',type: 'card',cost: 2,},
+            {name:'drawTwo', desc:'Draw two cards',key: 16, owner: '',type: 'card',cost:2},
+            {name:'drawTwo', desc:'Draw two cards',key: 17, owner: '',type: 'card',cost:2},
+            // {name: 'Strategize', desc:'remove one card from hand from play', key:15, owner:'',type:'card',cost:1},
             {name: 'Power Gauntlet',desc:'attacks deal 1 extra dmg',key: 'relic-3',owner:'',type: 'relic',cost:1},
             {name: 'Power Shield',desc:'Add one point of perm armor',key: 'relic-2',owner:'',type: 'relic',cost:1,},
             {name: 'Power Gauntlet',desc:'attacks deal 1 extra dmg',key: 'relic-1',owner:'',type: 'relic',cost:1},
+            {name: 'Dream Engine',desc:'You draw an extra card at each draw step',key: 'relic-4',owner:'',type: 'relic',cost:3},
         ],
    
-//lastest card key#: 14
-//latest relic #: relic-3
+//lastest card key#: 16
+//latest relic #: relic-4
+
+        strategizePlayer1Toggle:false,
+        strategizePlayer0Toggle:false,
+
+        player0DrawstepAmount:1,
+        player1DrawstepAmount:1,
 
         player0HealStr: 1,
         player1HealStr: 1,
@@ -345,7 +357,7 @@ function PlayCard(G, ctx, cardId){
         healDmg(G, player, ctx.random.Die(6)) //random die roll of 6
     }
 
-    if(cardId === 6){
+    if(cardId === 6 || cardId === 16 || cardId === 17){
         if(ctx.currentPlayer == 0){
             Player0DrawCard(G,ctx,2)
         }
@@ -624,6 +636,18 @@ function increasePlayerHeals(G,ctx,amount=1){ //same deal as the dmg func.
     }
 }
 
+function strategize(G,ctx){
+    let player = ctx.currentPlayer
+    if(player== 0){
+        
+        
+    }
+    if(player == 1){
+        
+        
+    }
+}
+
 
 
 function powerShift(G,ctx){
@@ -634,7 +658,7 @@ function powerShift(G,ctx){
     }
     if(player == 1){
         let l = G.player0Hand.length
-        G.player1LifeTotal = G.player1LifeTotal - (l * G.player0AttackMultiplyer)
+        G.player0LifeTotal = G.player0LifeTotal - (l * G.player1AttackMultiplyer)
     }
     
     G.player0Graveyard.push(...G.player0Hand)
@@ -659,6 +683,9 @@ function CheckRelics(G,ctx,card=undefined){
                     G.permArmor0 += (1)
                     i = G.player0Relics.length
                 }
+                if(card.key === 'relic-4'){
+                    G.player0DrawstepAmount += (1)
+                }
             }
         }else
         for(let i =0; i < G.player0Relics.length; i++){
@@ -667,6 +694,9 @@ function CheckRelics(G,ctx,card=undefined){
             }
             if(G.player0Relics[i].key === 'relic-2'){
                 G.permArmor0 += (1)
+            }
+            if(G.player0Relics[i].key === 'relic-4'){
+                G.player0DrawstepAmount += (1)
             }
         }
     }
@@ -681,6 +711,9 @@ function CheckRelics(G,ctx,card=undefined){
                     G.permArmor1 += (1)
                     i = G.player1Relics.length
                 }
+                if(card.key === 'relic-4'){
+                    G.player1DrawstepAmount += (1)
+                }
             }
         }else
         for(let i =0; i < G.player1Relics.length; i++){
@@ -690,9 +723,13 @@ function CheckRelics(G,ctx,card=undefined){
             if(G.player1Relics[i].key === 'relic-2'){
                 G.permArmor1 += (1)
             }
+            if(G.player1Relics[i].key === 'relic-4'){
+                G.player1DrawstepAmount += (1)
+            }
         }
     }
 } //test for git hub
+
 
 function EndTurn(G,ctx){
     // console.log(ctx.stage)
