@@ -14,7 +14,7 @@ import {INVALID_MOVE} from 'boardgame.io/core';
 // Needs animations and card art.                                                                                                           //
 // Homepage has instructions on how to play etc.                                                                                            // *kinda fixed needs to be updated on the style changes
 // Session security and validation so that players can't loggin to each others sessions.                                                    //
-// When the hand is too full the cards start to become unclickable. Might use a ui change, Might put a rule on hand limit.
+// When the hand is too full the cards start to become unclickable. Might use a ui change, Might put a rule on hand limit.                  //
 
 
 //This will be the MVP

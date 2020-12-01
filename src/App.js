@@ -31,6 +31,7 @@ const MacroClient = Client({
   //need to figure out how to strip the player view on p1 and keep the cards actionable
 })
 
+//need to find a way to pass data into the match as players should be able to bring thier own cards.
 
 const App = ()=>(
   <Router history={history}>
