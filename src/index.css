@@ -252,6 +252,10 @@ h3{
   border: 1px solid black;
 }
 
+.rotate-device{
+  display:none
+}
+
 /* hover effects need a slot for animations still */
 
 .end-turn:hover{
@@ -316,3 +320,38 @@ general effects
 
 
 /* media queries go here */
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: #3f5e66;
+  }
+
+  
+}
+
+/* @media only screen and (max-height: 600px) {
+  body {
+    background-color: red;
+  }
+
+  
+} */
+
+
+@media screen and (orientation: portrait) and (max-width: 768px) {
+  .homepage-container {
+    display:none;
+    
+  }
+  .rotate-device{
+    display:flex;
+
+  }
+}
+
+
+@media screen and (orientation: landscape) {
+  body {
+    
+  }
+}
