@@ -104,13 +104,14 @@ export class MacroTacticsBoard extends React.Component {
 
     const cellStyle = {
       border: '1px solid #555',
-      width: '110px',
-      height: '150px',
+      width: '6.5vw',
+      height: '14vh',
       lineHeight: '50px',
       textAlign: 'center',
       background: 'white',
       margin: '1vw',
       transition: 'all .15s ease-in-out',
+      fontSize: '.75em',
     };
 
 
@@ -124,8 +125,8 @@ export class MacroTacticsBoard extends React.Component {
           );
 
       setTimeout(() => history.push('/'), 3000);
-      setTimeout(()=> window.location.reload(), 3500)
-      
+      setTimeout(() => window.location.reload(), 3500)
+
 
     }
 
@@ -203,7 +204,7 @@ export class MacroTacticsBoard extends React.Component {
 
 
         <div className='player1Hand'>
-          <div>player1 hand</div>
+          <div className='hand-title'>player1 hand</div>
           <div onClick={() => this.handleDraw(1)} className='draw-button'>draw</div>
           {
             this.props.G.player1Hand.map((elem) => {
@@ -212,7 +213,9 @@ export class MacroTacticsBoard extends React.Component {
                   <p>
                     {elem.name}
                     <br></br>
+                    <div className='player1-card-desc'>
                     {elem.desc}
+                    </div>
                   </p>
                 </div>)
             })
@@ -225,7 +228,7 @@ export class MacroTacticsBoard extends React.Component {
 
 
             <div className='player1Deck'>
-              <div>player1 deck</div>
+              <div className='player1-deck-title'>player1 deck</div>
               <div style={cellStyle} onClick={() => { this.showPlayer1Deck(0) }}>
                 {
                   this.props.G.player1Deck[0].name
@@ -235,16 +238,13 @@ export class MacroTacticsBoard extends React.Component {
             </div>) : null}
 
 
-
         <div className="player1Graveyard">
-          <div>Player1 Graveyard</div>
+          <div className="graveyard-title">Player1 Graveyard</div>
           {this.props.G.player1Graveyard.map((elem) => {
             return (
-              <div key={elem.key} style={cellStyle} onClick={null}>
+              <div key={elem.key} style={cellStyle} onClick={null} className='player1-graveyard-elm'>
                 <p>
                   {elem.name}
-                  <br></br>
-                  {elem.desc}
                 </p>
               </div>
             )
@@ -252,73 +252,79 @@ export class MacroTacticsBoard extends React.Component {
         </div>
 
 
+        <div className='player-data-container'>
 
-        <div className='player1LifeTotal'>
-          Player1 Gold Total:
-      <br></br>
-          <h2 style={{ color: '#ceba06' }}>{this.props.G.player1Gold}</h2>
-        </div>
 
-        <div className='player1LifeTotal'>
-          Player1 Attack Multiplier:
+          <div className='player1LifeTotal'>
+            Player1 Gold Total:
       <br></br>
-          <h2 style={{ color: '	#8A2BE2' }}>{this.props.G.player1AttackMultiplyer}</h2>
-        </div>
+            <h2 style={{ color: '#ceba06' }}>{this.props.G.player1Gold}</h2>
+          </div>
 
-        <div className='player1LifeTotal'>
-          Player1 life/life total/armor:
+          <div className='player1LifeTotal'>
+            Player1 Attack Multiplier:
       <br></br>
-          <h2 style={{ color: 'red' }}>{this.props.G.player1LifeTotal}</h2>
+            <h2 style={{ color: '	#8A2BE2' }}>{this.props.G.player1AttackMultiplyer}</h2>
+          </div>
+
+          <div className='player1LifeTotal'>
+            Player1 life/life total/armor:
+      <br></br>
+            <h2 style={{ color: 'red' }}>{this.props.G.player1LifeTotal}</h2>
           /<h2 style={{ color: 'green' }}>{this.props.G.player1LifeMax}</h2>/
           <h2 style={{ color: '#C0C0C0' }}>{this.props.G.player1Armor}</h2>
-        </div>
-
-        <div className='player1LifeTotal'>
-          Moves Left:
-      <br></br>
-          <h2>{this.props.ctx.numMoves}/3</h2>
-
-          <div className='end-turn-container' >
-            <div className='end-turn' onClick={() => { this.endTurn() }}>End Turn</div>
           </div>
-          {this.props.ctx.currentPlayer == 1 ? (
-            <div className="turn">
-              <div className='green-circle'></div>
-              <div className='invisible-circle'></div>
-              <div className='red-circle'></div>
 
+          <div className='player1LifeTotal'>
+            <div className='moves-left'>
+            Moves Left:
             </div>
-          ) : <div className="turn">
-              <div className='red-circle'></div>
-              <div className='invisible-circle'></div>
-              <div className='green-circle'></div>
-
-            </div>}
-
-        </div>
-
-        <div className='player0LifeTotal'>
-          Player0 life/life total/armor:
       <br></br>
-          <h2 style={{ color: 'red' }}>{this.props.G.player0LifeTotal}</h2>
+            <h2>{this.props.ctx.numMoves}/3</h2>
+
+            <div className='end-turn-container' >
+              <div className='end-turn' onClick={() => { this.endTurn() }}>End Turn</div>
+            </div>
+            {this.props.ctx.currentPlayer == 1 ? (
+              <div className="turn">
+                <div className='green-circle'></div>
+                <div className='invisible-circle'></div>
+                <div className='red-circle'></div>
+
+              </div>
+            ) : <div className="turn">
+                <div className='red-circle'></div>
+                <div className='invisible-circle'></div>
+                <div className='green-circle'></div>
+
+              </div>}
+
+          </div>
+
+          <div className='player0LifeTotal'>
+            Player0 life/life total/armor:
+      <br></br>
+            <h2 style={{ color: 'red' }}>{this.props.G.player0LifeTotal}</h2>
           /<h2 style={{ color: 'green' }}>{this.props.G.player0LifeMax}</h2>/
           <h2 style={{ color: '#C0C0C0' }}>{this.props.G.player0Armor}</h2>
-        </div>
-        <div className='player0LifeTotal'>
-          Player0 Attack Multiplier:
+          </div>
+          <div className='player0LifeTotal'>
+            Player0 Attack Multiplier:
       <br></br>
-          <h2 style={{ color: '	#8A2BE2' }}>{this.props.G.player0AttackMultiplyer}</h2>
-        </div>
-        <div className='player0LifeTotal'>
-          Player0 Gold Total:
+            <h2 style={{ color: '	#8A2BE2' }}>{this.props.G.player0AttackMultiplyer}</h2>
+          </div>
+          <div className='player0LifeTotal'>
+            Player0 Gold Total:
       <br></br>
-          <h2 style={{ color: '#ceba06' }}>{this.props.G.player0Gold}</h2>
+            <h2 style={{ color: '#ceba06' }}>{this.props.G.player0Gold}</h2>
+          </div>
+
         </div>
 
 
 
         <div className='player0Hand'>
-          <div>player0 hand</div>
+          <div className='hand-title'>player0 hand</div>
           <div onClick={() => this.handleDraw(0)} className='draw-button'>draw</div>
           {
             this.props.G.player0Hand.map((elem) => {
@@ -328,15 +334,14 @@ export class MacroTacticsBoard extends React.Component {
                   <p>
                     {elem.name}
                     <br></br>
+                    <div className='player0-card-desc'>
                     {elem.desc}
+                    </div>
                   </p>
                 </div>)
             })
           }
         </div>
-
-
-
 
         {
           this.props.G.player0Deck[0] ? (
@@ -344,7 +349,7 @@ export class MacroTacticsBoard extends React.Component {
 
 
             <div className='player0Deck'>
-              <div>player0 deck</div>
+              <div className='player0-deck-title'>player0 deck</div>
               <div style={cellStyle} onClick={() => { this.showPlayer0Deck(0) }}>
                 {
                   this.props.G.player0Deck[0].name
@@ -356,14 +361,12 @@ export class MacroTacticsBoard extends React.Component {
 
 
         <div className="player0Graveyard">
-          <div>Player0 Graveyard</div>
+          <div className="graveyard-title">Player0 Graveyard</div>
           {this.props.G.player0Graveyard.map((elem) => {
             return (
-              <div key={elem.key} style={cellStyle} onClick={null}>
+              <div key={elem.key} style={cellStyle} onClick={null} className='player0-graveyard-elm'>
                 <p>
                   {elem.name}
-                  <br></br>
-                  {elem.desc}
                 </p>
               </div>
             )
@@ -371,7 +374,7 @@ export class MacroTacticsBoard extends React.Component {
         </div>
 
         <div className="player0Relics">
-          <div>Player0 Relics</div>
+          <div className='player0-relic-title'>Player0 Relics</div>
           {this.props.G.player0Relics.map((elem) => {
             return (
               <div key={elem.key} style={cellStyle} onClick={null}>
@@ -385,7 +388,7 @@ export class MacroTacticsBoard extends React.Component {
           })}
         </div>
         <div className="player1Relics">
-          <div>Player1 Relics</div>
+          <div className='player1-relic-title'>Player1 Relics</div>
           {this.props.G.player1Relics.map((elem) => {
             return (
               <div key={elem.key} style={cellStyle} onClick={null}>

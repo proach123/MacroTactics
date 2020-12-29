@@ -82,14 +82,20 @@ div{
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 40vh;
+  
 }
 .player1LifeTotal{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 40vh;
+  
+}
+
+.player-data-container{
+  position: absolute;
+    top:35vh;
+    left:50vw;
 }
 
 .player0Deck{
@@ -187,9 +193,8 @@ h3{
   flex-direction:column;
   position: absolute;
   align-items: center;
-  width: 500px;
-  height: 300px;
-  right: 20vw;
+  width: 10%;
+  right: -10vw;
 }
 .red-circle{
   height: 100px;
@@ -329,14 +334,6 @@ general effects
   
 }
 
-/* @media only screen and (max-height: 600px) {
-  body {
-    background-color: red;
-  }
-
-  
-} */
-
 
 @media screen and (orientation: portrait) and (max-width: 768px) {
   .homepage-container {
@@ -347,11 +344,107 @@ general effects
     display:flex;
 
   }
+
 }
 
 
-@media screen and (orientation: landscape) {
-  body {
-    
+@media screen and (orientation: landscape) and (max-height:400px) {
+
+  .body{
+    font-size: 12px;
   }
+
+  .turn{
+    width: 10%;
+    right: -10vw;    
+  }
+
+  .red-circle{
+    height: 50px;
+    width: 50px;
+    margin:90%;
+  }
+  .green-circle{
+    height: 50px;
+    width: 50px;
+  }
+  .invisible-circle{
+    display: none;
+  }
+
+  p{
+    font-size: 10px
+
+  }
+
+  .player-data-container{
+    position: absolute;
+    font-size: 12px;
+    width: 200px;
+    top:30vh;
+    left: 50vw;
+  }
+
+  .end-turn{
+    width:70px;
+    font-size: 12px;
+  }
+  h2{
+    justify-content:center;
+    font-size: 14px;
+  }
+
+  .hand-title{
+    display:none;
+  }
+
+  .draw-button{
+    width:70px;
+
+  }
+
+  .player0Graveyard{
+    font-size: 12px;
+  }
+
+  .player1Graveyard{
+    font-size: 12px;
+  }
+
+  .player0-graveyard-elm:nth-child(n+3){
+    display:none;
+  }
+
+  .player1-graveyard-elm:nth-child(n+3){
+    display:none;
+  }
+
+  .player1-deck-title{
+    display:none;
+  }
+
+  .player0-deck-title{
+    display:none;
+  }
+  
+  .moves-left{
+    display:none;
+  }
+
+  .player0-card-desc{
+    display:none
+  }
+
+  .player1-card-desc{
+    display:none
+  }
+
+  .player1-relic-title{
+    display:none;
+  }
+
+  .player0-relic-title{
+    display:none;
+  }
+
 }
